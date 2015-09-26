@@ -24,8 +24,8 @@
 
 namespace xdm {
 
-size_t typeSize( primitiveType::Value type ) {
-  static size_t sizes[] = {
+std::size_t typeSize( primitiveType::Value type ) {
+  static std::size_t sizes[] = {
     sizeof(char),
     sizeof(short),
     sizeof(int),

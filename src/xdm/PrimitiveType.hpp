@@ -44,7 +44,7 @@ namespace primitiveType {
 } // namespace primitiveType
 
 /// Function to provide size information for a primitive type.
-size_t typeSize( primitiveType::Value type );
+std::size_t typeSize( primitiveType::Value type );
 
 /// Structure to provide static type information for values of the
 /// primitiveType::Value enumeration.
@@ -59,7 +59,7 @@ template< typename T > struct PrimitiveTypeInfo {
 #define XDM_PRIMITIVE_TYPE_DEFINE_INFO( type, value ) \
   template<> struct PrimitiveTypeInfo< type > { \
     static const primitiveType::Value kValue = value; \
-    static const size_t kSize = sizeof( type ); \
+    static const std::size_t kSize = sizeof( type ); \
   };
 
 XDM_PRIMITIVE_TYPE_DEFINE_INFO( char, primitiveType::kChar )

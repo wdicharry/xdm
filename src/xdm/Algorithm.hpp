@@ -104,8 +104,8 @@ bool unorderedCollectionsEqual(
     BinaryPredicate comp ) {
 
   // Sizes must be equal.
-  ptrdiff_t size1 = std::distance( first1, last1 );
-  ptrdiff_t size2 = std::distance( first2, last2 );
+  std::ptrdiff_t size1 = std::distance( first1, last1 );
+  std::ptrdiff_t size2 = std::distance( first2, last2 );
   if ( size1 != size2 ) {
     return false;
   }

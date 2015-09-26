@@ -28,6 +28,8 @@
 #include <memory>
 #include <stdexcept>
 
+#include <cctype>
+
 namespace xdm {
 
 namespace {
@@ -256,7 +258,7 @@ BinaryIStream& operator>>( BinaryIStream& istr, xdm::XmlObject& v ) {
   istr >> tag;
   v.setTag( tag );
 
-  ptrdiff_t attributeCount;
+  std::ptrdiff_t attributeCount;
   istr >> attributeCount;
   for ( int i = 0; i < attributeCount; i++ ) {
     std::pair< std::string, std::string > keyValuePair;
@@ -264,7 +266,7 @@ BinaryIStream& operator>>( BinaryIStream& istr, xdm::XmlObject& v ) {
     v.appendAttribute( keyValuePair.first, keyValuePair.second );
   }
 
-  ptrdiff_t contentLineCount;
+  std::ptrdiff_t contentLineCount;
   istr >> contentLineCount;
   for ( int i = 0; i < contentLineCount; i++ ) {
     std::string contentLine;
@@ -272,7 +274,7 @@ BinaryIStream& operator>>( BinaryIStream& istr, xdm::XmlObject& v ) {
     v.appendContent( contentLine );
   }
 
-  ptrdiff_t childCount;
+  std::ptrdiff_t childCount;
   istr >> childCount;
   for ( int i = 0; i < childCount; i++ ) {
     xdm::RefPtr< xdm::XmlObject > child( new XmlObject );
